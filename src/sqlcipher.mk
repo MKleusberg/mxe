@@ -22,6 +22,6 @@ define $(PKG)_BUILD
         --disable-readline \
         --enable-threadsafe \
         --enable-load-extension \
-        CFLAGS="-Os"
+        CFLAGS="-Os -DSQLITE_HAS_CODEC" LDFLAGS="-lcrypto"
     $(MAKE) -C '$(1)' -j '$(JOBS)' install
 endef
